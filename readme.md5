@@ -1,0 +1,27 @@
+# WitchyBroom
+
+**WitchyBroom** is a simple browser-based game built with Phaser 3, featuring a Halloween-themed adventure. The player controls a witch flying through a city through walls made of skulls. The goal is to last as long as possible before colliding with a skull. This project was undertaken for the Spooktober Challenge at Codecademny and was completly produced in under 24 hours from the start (about 10 hours total work time). 
+It is based on Flappy Bird by Dong Nguyen.
+
+## Features
+- **Gameplay**: Control the witch with clicks or the spacebar to fly and avoid obstacles. 
+- **Graphics**: Custom sprites including a witch, skulls, stars, and buildings. All the graphics were made in Asperite
+- **Font**: Uses Google’s “Creepster” for modst of the text and Shlop by Typodermic fonts for the logo. 
+- **Score Tracking**: Keeps track of the player’s score as they survive longer. 
+- **Escalating difficulty**: The walls appear faster as time progresses. 
+- **procedurally generatedBackgrounds**: The star field and buildings are randomised. To give the issusion of more tiles the buildings are randomly flipped horizontally. 
+
+## How to Play
+- Click or press the spacebar (or for mobile tap the screen) to control the witch’s flight.
+- Avoid obstacles skulls.
+- The game ends when you hit an obstacle.
+
+## Installation
+No installation is necessary; you can simply run the `index.html` in any modern browser.
+
+## Assets
+- `witch.png` - Sprite sheet for the witch and other objects.
+- `buildings.png` - Sprite sheet for buildings in the background.
+
+## License
+This project uses the "Creepster" font via Google Fonts. The font license for Schlop is included in the repository.
