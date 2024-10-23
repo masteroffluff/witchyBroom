@@ -41,6 +41,7 @@
       fontFamily: "Creepster",
       fontSize: 36,
       color: "#aa0000",
+      align:"center",
     }
     const gameState = {
       width: 512,
@@ -194,10 +195,12 @@
 
         };
         gameState.active = false;
-        const startText = this.add.text(150, 200, "Click to Start", textFormat).setShadow(2, 2, '#6abe30', 10, true, true);;
+        const startText = this.add.text(gameState.width / 2, 200, "Click to Start", textFormat).setShadow(2, 2, '#6abe30', 10, true, true).setOrigin(0.5,0);
+        const instructions = this.add.text(gameState.width / 2, 300, "To make the witch rise click or press space.\nAvoid the skulls", {...textFormat, fontSize: 18}).setShadow(2, 2, '#6abe30', 10, true, true).setOrigin(0.5,0);
         this.physics.pause();
         this.input.on('pointerup', () => {
           startText.destroy();
+          instructions.destroy();
           gameState.active = true;
           this.physics.resume();
           this.input.off('pointerup')
