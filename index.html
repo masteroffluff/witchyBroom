@@ -47,7 +47,7 @@
         window.scrollTo(0, 1);
       }, 0);
     });
-    
+
     class GameScene extends Phaser.Scene {
       constructor() {
         super("Level");
@@ -132,13 +132,15 @@
         const gameEnd = () => {
           gameState.active = false;
           this.player.destroy();
-          this.add.text(150, 200, "Ding Dong, you died.\n Happy Halloween! \n\n\n\n\n CLick to continue", textFormat).setShadow(2, 2, '#6abe30', 10, true, true);;
+          this.add.text(gameState.width / 2, 200, "Ding Dong, you died.\n Happy Halloween! \n\n\n\n\n CLick to continue", textFormat).setShadow(2, 2, '#6abe30', 10, true, true).setOrigin(0.5, 0).setDepth(999);
+
           this.physics.pause();
           this.input.on('pointerup', () => {
             this.scene.restart();
           })
 
         };
+        this.physics.add.overlap(this.player, this.skulls, gameEnd);
         this.physics.add.collider(this.player, floor, gameEnd);
         const getTimer = () => {
           switch (true) {
@@ -173,7 +175,7 @@
 
           hole = Phaser.Math.Between(
             Math.max(hole - 3, 2),
-            Math.min(hole + 3, gameState.height / 64 - 2)
+            Math.min(hole + 3, gameState.height / 32 - 5)
           );
           this.wallCount++;
           if(this.wallLoop){
