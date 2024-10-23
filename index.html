@@ -70,11 +70,10 @@
       create() {
         gameState.active = false;
         const texture = this.textures.get("mySpriteSheet");
-        // Manually add frames from the sheet
-        texture.add("witch", 0, 0, 0, 31, 31); // x=0, y=0, width=32, height=32
-        texture.add("skull", 0, 32, 0, 32, 32); // x=32, y=0, width=32, height=32
-        texture.add("logo", 0, 0, 32, 160, 32); // x=0, y=32, width=160, height=32
-        texture.add("star", 0, 64, 0, 5, 5); // x=0, y=64, width=5, height=5
+        texture.add("witch", 0, 0, 0, 31, 31); 
+        texture.add("skull", 0, 32, 0, 32, 32); 
+        texture.add("logo", 0, 0, 32, 160, 32); 
+        texture.add("star", 0, 64, 0, 5, 5);
 
         let graphics = this.add.graphics();
         graphics.fillStyle(0x0, 1);
@@ -89,12 +88,7 @@
           color: "#fff",
         }).setDepth(999).setOrigin(1,1)
         this.add
-          .image(gameState.width / 2, 40, "mySpriteSheet", "logo")
-          .setScale(2)
-          .setDepth(999);
-
-
-
+          .image(gameState.width / 2, 40, "mySpriteSheet", "logo").setScale(2).setDepth(999);
         this.spaceBar = this.input.keyboard.addKey(
           Phaser.Input.Keyboard.KeyCodes.SPACE
         );
