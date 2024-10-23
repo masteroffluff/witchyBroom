@@ -1,10 +1,15 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Witchy Broom</title>
   <meta name="viewport" content="width=device-width">
   <style>
+    body {
+      overflow: hidden;
+      background-color: black
+    }
     canvas {
       width: 500px;
     }
@@ -12,14 +17,14 @@
 </head>
 
 <body>
+  
   <script src="https://cdn.jsdelivr.net/npm/phaser@3.16.2/dist/phaser.js"></script>
-
   <script>
     WebFontConfig = {
       google: { families: ["Creepster"] },
       active: function () {
-      startGame();
-  }
+        startGame();
+      }
     };
     (function () {
       var wf = document.createElement("script");
@@ -31,7 +36,7 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(wf, s);
     })();
-// WebFontConfig script taken from https://phasergames.com/using-google-fonts-phaser/
+    // WebFontConfig script taken from https://phasergames.com/using-google-fonts-phaser/
     const textFormat = {
       fontFamily: "Creepster",
       fontSize: 36,
@@ -78,10 +83,18 @@
         graphics.generateTexture('bottom', gameState.width, 32);
         const floor = this.physics.add.staticGroup();
         floor.create(gameState.width / 2, gameState.height, 'bottom')
+        this.add.text(gameState.width, gameState.height-5, "by Chris chapman aka masteroffluff", {
+          fontFamily: "Creepster",
+          fontSize: 16,
+          color: "#fff",
+        }).setDepth(999).setOrigin(1,1)
         this.add
           .image(gameState.width / 2, 40, "mySpriteSheet", "logo")
           .setScale(2)
           .setDepth(999);
+
+
+
         this.spaceBar = this.input.keyboard.addKey(
           Phaser.Input.Keyboard.KeyCodes.SPACE
         );
@@ -181,7 +194,7 @@
             Math.min(hole + 3, gameState.height / 32 - 5)
           );
           this.wallCount++;
-          if(this.wallLoop){
+          if (this.wallLoop) {
             this.wallLoop.delay = getTimer()
           }
 
@@ -258,9 +271,10 @@
       },
       scene: [GameScene],
     };
-    function startGame(){ 
+    function startGame() {
       game = new Phaser.Game(config)
     }
   </script>
 </body>
+
 </html>
